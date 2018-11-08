@@ -48,15 +48,14 @@ $ sudo apt-get install python3 python3-venv python3-pip
 ```
 
 Creamos una cuenta para Home Assistant llamada `homeassistant`.
-Como este cuenta solamente la utilizaremos para correr Home Assistant el argumento extra de `-rm` es agregado para crear una cuenta de sistema y creamos un directorio de home.
-Los argumentos de `-G dialout,gpio` agrega al usuario a los grupos de `dialout` y `gpio`. El primer grupo es requerido para usar controladores Z-Wave y Zigbee,
-mientras que el segundo es requerido para comunicarse con el GPIO del Raspberry.
+Dado que esta cuenta solamente la utilizaremos para correr Home Assistant, el argumento extra de `-rm` es agregado para crear una cuenta de sistema y crear su directorio en home.
+Los argumentos de `-G dialout,gpio` agrega al usuario a los grupos de `dialout` y `gpio`. El primer grupo es requerido para usar controladores Z-Wave y Zigbee, mientras que el segundo es requerido para comunicarse con el GPIO del Raspberry.
 
 ```bash
 $ sudo useradd -rm homeassistant -G dialout,gpio
 ```
 
-A continuación creamos un directorio para la instalación de Home Assistant y le cambiamos el dueño a la cuenta de `homeassistant`.
+A continuación creamos un directorio para la instalación de Home Assistant y le cambiamos el propietario a `homeassistant`.
 
 ```bash
 $ cd /srv
