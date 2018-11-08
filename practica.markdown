@@ -34,7 +34,7 @@ Con lo siguiente se puede cambiar la constraseña por defecto.
 $ passwd
 ```
 
-(Opcional) Actualizar el sistema.
+(Deseable) Actualizar el sistema.
 
 ```bash
 $ sudo apt-get update
@@ -56,7 +56,7 @@ mientras que el segundo es requerido para comunicarse con el GPIO del Raspberry.
 $ sudo useradd -rm homeassistant -G dialout,gpio
 ```
 
-Next we will create a directory for the installation of Home Assistant and change the owner to the `homeassistant` account.
+A continuación creamos un directorio para la instalación de Home Assistant y le cambiamos el dueño a la cuenta de `homeassistant`.
 
 ```bash
 $ cd /srv
@@ -64,7 +64,7 @@ $ sudo mkdir homeassistant
 $ sudo chown homeassistant:homeassistant homeassistant
 ```
 
-Next up is to create and change to a virtual environment for Home Assistant. This will be done as the `homeassistant` account.
+Luego creamos y nos cambiamos a el virtual environment para Home Assistant. Esto será hecho desde la cuenta de `homeassistant`.
 
 ```bash
 $ sudo -u homeassistant -H -s
@@ -72,24 +72,24 @@ $ cd /srv/homeassistant
 $ python3 -m venv .
 $ source bin/activate
 ```
-Once you have activated the virtual environment (notice the prompt change) you will need to run the following command to install a required python package.
+Una vez que hemos activado el virtual environment (notar el cambio del prompt) necesitarás correr el siguiente comando para instalar un paquete requerido de python.
 
 ```bash
 (homeassistant) homeassistant@raspberrypi:/srv/homeassistant $ python3 -m pip install wheel
 ```
 
-Once you have installed the required python package it is now time to install Home Assistant!
+Posterior de haber instalado este paquete requerido proseguimos ahora a instalar Home Assistant:
 
 ```bash
 (homeassistant) homeassistant@raspberrypi:/srv/homeassistant $ pip3 install homeassistant
 ```
 
-Start Home Assistant for the first time. This will complete the installation for you, automatically creating the `.homeassistant` configuration directory in the `/home/homeassistant` directory, and installing any basic dependencies.
+Iniciamos Home Assistant por primera vez. Esto finalizará la instalación por ti, creando automaticamente el directorio de configuración `.homeassistant` en el directorio `/home/homeassistant`, y instalando cualquier dependencia básica.
 
 ```bash
 (homeassistant) $ hass
 ```
-Tu puedes ahora alcanzar tu instalación en tu Raspberry Pi para la interfaz web en [http://ipaddress:8123](http://ipaddress:8123).
+Tu puedes ahora alcanzar tu instalación en tu Raspberry Pi por la interfaz web en [http://ipaddress:8123](http://ipaddress:8123).
 
 Cuando se ejecuta el comando `hass` por primera vez, este descargará , instalará y hará cache de las librecias/dependencias necesarias. Este procedimiento tomará entre 5 a 10 minutos. Durante ese tiempo, tu puedes obtener un error de "site cannot be reached" cuando accedes a la interfaz web.  Esto solamente ocurrirá la primera vez, y en los subsecuentes reinicios será mucho más rapido.
 
