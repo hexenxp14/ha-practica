@@ -94,7 +94,7 @@ Cuando se ejecuta el comando `hass` por primera vez, este descargará , instalar
 
 ### Instalación de Remot3.it
 
-Con este servicio obtendremos temporalmente una dirección URL, para acceder a nuestro Raspberry. Accedemos y creamos una cuenta en Remot3.it [aquí](https://www.remot3.it/web/index.html)
+Con este servicio obtendremos temporalmente una dirección URL, para acceder a nuestro Raspberry. Creamos una cuenta en Remot3.it [aquí](https://www.remot3.it/web/index.html)
 
 Decargamos el paquete de remot3.it weavedconnectd:
 
@@ -109,4 +109,32 @@ $ sudo weavedinstaller
 ```
 
 Para lanzar el instalador interactivo.
+
+### Autoinicio usando systemd
+
+La más nuevas distribuciones de Linux están tendiendo a usar `systemd` para la gestión de demonios. Un archivo de servicio es necesario para controlar Home Assistant con `systemd`. La plantilla abajo debe ser creada usando un editor de texto. Notar, que permisos de root vía `sudo` serán necesarios.
+
+Para crear el archivo `sudo nano -w [filename]` puede ser usado. `[filename]` se remplaza con la ruta completa hacia el archivo. Así en nuestro caso será:
+
+```bash
+$ sudo nano -w /etc/systemd/system/home-assistant@homeassistant.service`. 
+```
+
+Pegamos el siguiente texto:
+
+```
+[Unit]
+Description=Home Assistant
+After=network-online.target
+
+[Service]
+Type=simple
+User=%i
+ExecStart=/usr/bin/hass
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Presionamos CTRL-X luego Y para guardar y salir.
 
