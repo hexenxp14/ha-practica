@@ -130,7 +130,7 @@ After=network-online.target
 [Service]
 Type=simple
 User=%i
-ExecStart=/usr/bin/hass
+ExecStart=/srv/homeassistant/bin/hass -c "/home/homeassistant/.homeassistant"
 
 [Install]
 WantedBy=multi-user.target
