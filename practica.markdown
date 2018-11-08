@@ -138,3 +138,47 @@ WantedBy=multi-user.target
 
 Presionamos CTRL-X luego Y para guardar y salir.
 
+ou need to reload `systemd` to make the daemon aware of the new configuration.
+
+```bash
+$ sudo systemctl --system daemon-reload
+```
+
+To have Home Assistant start automatically at boot, enable the service.
+
+```bash
+$ sudo systemctl enable home-assistant@homeassistant
+```
+
+To disable the automatic start, use this command.
+
+```bash
+$ sudo systemctl disable home-assistant@homeassistant
+```
+
+To start Home Assistant now, use this command.
+```bash
+$ sudo systemctl start home-assistant@homeassistant
+```
+
+You can also substitute the `start` above with `stop` to stop Home Assistant, `restart` to restart Home Assistant, and 'status' to see a brief status report as seen below.
+
+```bash
+$ sudo systemctl status home-assistant@homeassistant.service
+● home-assistant@fab.service - Home Assistant for homeassistant
+   Loaded: loaded (/etc/systemd/system/home-assistant@homeassistant.service; enabled; vendor preset: disabled)
+   Active: active (running) since Sat 2016-03-26 12:26:06 CET; 13min ago
+ Main PID: 30422 (hass)
+   CGroup: /system.slice/system-home\x2dassistant.slice/home-assistant@homeassistant.service
+           ├─30422 /usr/bin/python3 /usr/bin/hass
+           └─30426 /usr/bin/python3 /usr/bin/hass
+[...]
+```
+
+To get Home Assistant's logging output, simple use `journalctl`.
+
+```bash
+$ sudo journalctl -f -u home-assistant@homeassistant
+```
+
+
