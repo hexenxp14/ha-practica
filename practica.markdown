@@ -1,4 +1,4 @@
-# Práctia IOT - Home Assistant
+# Práctica IOT - Home Assistant
 
 ## Objetivo:
 
@@ -181,4 +181,17 @@ To get Home Assistant's logging output, simple use `journalctl`.
 $ sudo journalctl -f -u home-assistant@homeassistant
 ```
 
+### Raspberry Pi GPIO Switch
+
+The `rpi_gpio` switch platform allows you to control the GPIOs of your [Raspberry Pi](https://www.raspberrypi.org/).
+
+To use your Raspberry Pi's GPIO in your installation, add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+switch:
+  - platform: rpi_gpio
+    ports:
+      18: Led
+```
 
