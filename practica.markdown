@@ -199,12 +199,12 @@ switch:
 
 El componente `google_assistant` nos permite controla cosas via Google Assistant (en tu celular o tablet) o un dispositivo Google Home.
 
-Tu necesitas crear un API Key con la [Google Cloud API Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview) que nos permitirá actualizar dispositivos sin desanlazar y reelanzar la cuenta. Si tu no provees una, el servicio `google_assistant.request_sync` no es expuesto. Es recomendable  is recommended to set up this configuration key as it also allows the usage of the following command, "Ok Google, sync my devices". Once you have set up this component, you will need to call this service (or command) each time you add a new device that you wish to control via the Google Assistant integration.
+Tu necesitas crear un API Key con la [Google Cloud API Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview) que nos permitirá actualizar dispositivos sin desanlazar y reelanzar la cuenta. Si no se provee una, el servicio `google_assistant.request_sync` no es expuesto. Es recomendable  configurar esto llave ya que nos permite el uso del comando, "Ok Google, sincroniza luces". Una vez establecido, tu puedes llamar a este servicio (o comando) cada ve que se agregue un nuevo dispositivo que se deseee controlar vía la intregración con Google Assistant.
 
-1. Create a new project in the [Actions on Google console](https://console.actions.google.com/).
-    1. Add/Import a project and give it a name.
-    2. Click on the `Home Control` card, select the `Smart home` recommendation.
-    3. Create an Action, under the build section. Add your Home Assistant URL: `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant`, replace the `[YOUR HOME ASSISTANT URL:PORT]` with the domain / IP address and the port under which your Home Assistant is reachable.
+1. Crear un nuevo proyecto en [Actions on Google console](https://console.actions.google.com/).
+    1. Agregar/Importar un proyecto y darle un nombre.
+    2. Clic en la tarjeta `Home Control`, seleccionar la recomendación `Smart home`.
+    3. Crear una Action, bajo sección build. Agregar la  URL de Home Assistant : `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant`, rempla the `[YOUR HOME ASSISTANT URL:PORT]` with the domain / IP address and the port under which your Home Assistant is reachable.
     4. Click `Done`. Then click on `Overview`, which will lead you back to the app details screen.
 2. `Account linking` is required for your app to interact with Home Assistant. Set this up under the `Quick Setup` section.
     1. Leave it at the default `No, I only want to allow account creation on my website` and select Next.
