@@ -182,9 +182,9 @@ $ sudo journalctl -f -u home-assistant@homeassistant
 
 ### Raspberry Pi GPIO Switch
 
-The `rpi_gpio` switch platform allows you to control the GPIOs of your [Raspberry Pi](https://www.raspberrypi.org/).
+El componente `rpi_gpio` switch nos permite controlar las GPIOs del [Raspberry Pi](https://www.raspberrypi.org/).
 
-To use your Raspberry Pi's GPIO in your installation, add the following to your `configuration.yaml` file:
+Para usar este en nuestra instalación, agregamos lo siguiente al archivo `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
