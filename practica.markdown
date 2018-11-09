@@ -138,30 +138,29 @@ WantedBy=multi-user.target
 
 Presionamos CTRL-X luego Y para guardar y salir.
 
-ou need to reload `systemd` to make the daemon aware of the new configuration.
+Debemos recarcar `systemd` para advertir al demonio de la nueva configuración.
 
 ```bash
 $ sudo systemctl --system daemon-reload
 ```
 
-To have Home Assistant start automatically at boot, enable the service.
+Para que Home Assistant inicie automáticamente al encender, habilitamos el servicio.
 
 ```bash
 $ sudo systemctl enable home-assistant@homeassistant
 ```
 
-To disable the automatic start, use this command.
+Para deshabilitar el inicio automático, usar este comando.
 
 ```bash
 $ sudo systemctl disable home-assistant@homeassistant
 ```
 
-To start Home Assistant now, use this command.
+Para iniciar  Home Assistant ahora, usar este comando.
 ```bash
 $ sudo systemctl start home-assistant@homeassistant
 ```
-
-You can also substitute the `start` above with `stop` to stop Home Assistant, `restart` to restart Home Assistant, and 'status' to see a brief status report as seen below.
+Se puede también sustiuir el `start` de arriba con `stop` para detener Home Assistant, `restart` para reiniciar Home Assistant, y a 'status' para ver un reporte de estado.
 
 ```bash
 $ sudo systemctl status home-assistant@homeassistant.service
@@ -175,7 +174,7 @@ $ sudo systemctl status home-assistant@homeassistant.service
 [...]
 ```
 
-To get Home Assistant's logging output, simple use `journalctl`.
+Para obtener la salida de logging, simplemente usamos `journalctl`.
 
 ```bash
 $ sudo journalctl -f -u home-assistant@homeassistant
@@ -221,11 +220,11 @@ Tu necesitas crear un API Key con la [Google Cloud API Console](https://console.
 4. Si tu no has agregado el compoenente al archivo de `configuration.yaml` y reiniciado Home Assistant, no se debe continuar hasta tenerlo.
 5. Abrimos la plicación Google Assistant y vamos a `Settings > Home Control`.
 6. Clic en el signo `+`, y en la parte de hasta arriba, debes tener `[test] tu aplicación de prueba`. Al Seleccionar esto debería irse a un navegador web en la pagina de inicio de tu instancia de Home Assistant, entonces te redirige a una pantalla donde tu puedes establece habitaciones para tus dispositivos y apodos.
-8. If you want to use the `google_assistant.request_sync` service, to update devices without unlinking and relinking, in Home Assistant, then enable Homegraph API for your project:
-    1. Go to the [Google API Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview).
-    2. Select your project and click Enable Homegraph API.
-    3. Go to Credentials, which you can find on the left navigation bar under the key icon, and select API Key from Create Credentials.
-    4. Note down the generated API Key and use this in the configuration.
+7. Si tu quieres usar el servicio `google_assistant.request_sync`, para actualizar los dispositivos sin tener que desenlazar y reenlazar, en Home Assistant, entonces habilitamos el Homegraph API para tu proyecto:
+    1. Ir a la [Google API Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview).
+    2. Seleccionar tu proyecto y clic Enable Homegraph API.
+    3. Ir a Credentials, que tu puedes encontrar en la barra de navegación izquierda bajo el icono de llave, y seleccionamos API Key desde Create Credentials.
+    4. Vemos se genera la API Key  y usamos esta en la configuración.
 
 #### Configuración
 
