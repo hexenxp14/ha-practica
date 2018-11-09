@@ -28,7 +28,7 @@ Se necesitará habilitar acceso por SSH. El sitio de Raspberry Pi tiene las intr
 $ ssh pi@ipaddress
 ```
 
-Con lo siguiente se puede cambiar la constraseña por defecto.
+Con lo siguiente se puede cambiar la contraseña por defecto.
 
 ```bash
 $ passwd
