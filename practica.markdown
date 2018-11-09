@@ -204,48 +204,36 @@ Tu necesitas crear un API Key con la [Google Cloud API Console](https://console.
 1. Crear un nuevo proyecto en [Actions on Google console](https://console.actions.google.com/).
     1. Agregar/Importar un proyecto y darle un nombre.
     2. Clic en la tarjeta `Home Control`, seleccionar la recomendación `Smart home`.
-    3. Crear una Action, bajo sección build. Agregar la  URL de Home Assistant : `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant`, rempla the `[YOUR HOME ASSISTANT URL:PORT]` with the domain / IP address and the port under which your Home Assistant is reachable.
-    4. Click `Done`. Then click on `Overview`, which will lead you back to the app details screen.
-2. `Account linking` is required for your app to interact with Home Assistant. Set this up under the `Quick Setup` section.
-    1. Leave it at the default `No, I only want to allow account creation on my website` and select Next.
-    2. For the `Linking type` select `OAuth` and `Authorization Code`.
-    3. Client ID: `https://oauth-redirect.googleusercontent.com/`, the trailing slash is important.
-    4. Client Secret: Anything you like, Home Assistant doesn't need this field.
-    5. Authorization URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL:PORT]/auth/authorize`.
-    6. Token URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL:PORT]/auth/token`.
-    7. Configure your client. Add scopes for `email` and `name`.
-    8. Do **NOT** check `Google to transmit clientID and secret via HTTP basic auth header`.
-    9. Testing instructions: Enter anything. It doesn't matter since you won't submit this app.
+    3. Crear una Action, bajo la sección build. Agregar la  URL de Home Assistant : `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant`, remplazar '[YOUR HOME ASSISTANT URL:PORT]` con el dominio ó dirección ip  y el puerto bajo en el que tu Home Assistant es alcanzable.
+    4. Clic `Done`. Entonces clic en `Overview`, que te regresará a la pantalla de detalles de la app.
+2. `Account linking` es requerido para que tu app interactue con Home Assistant. Configuramos esto bajo la seección de `Quick Setup`.
+    1. Dejar el valor predeterminado `No, I only want to allow account creation on my website` y clic Next.
+    2. Para `Linking type` seleccionar `OAuth` y `Authorization Code`.
+    3. Client ID: `https://oauth-redirect.googleusercontent.com/`, el trailing slash es importante.
+    4. Client Secret: Cualquier cosa, Home Assistant no necesita este campo.
+    5. Authorization URL (reemplazar con tu actual URL): `https://[YOUR HOME ASSISTANT URL:PORT]/auth/authorize`.
+    6. Token URL (remplazar con tu actual URL): `https://[YOUR HOME ASSISTANT URL:PORT]/auth/token`.
+    7. Configurar tu cliente. Agregar scopes para `email` y `name`.
+    8. **NO** marcar `Google to transmit clientID and secret via HTTP basic auth header`.
+    9. Testing instructions: Introducir cualquier cosa. No importa dado que no aplicaremos esta app.
 
-    <img src='/images/components/google_assistant/accountlinking.png' alt='Screenshot: Account linking'>
-
-3. Back on the overview page. Click `Simulator` under `TEST`. It will create a new draft version Test App. You don't have to actually test, but you need to generate this draft version Test App.
-4. If you haven't already added the component configuration to `configuration.yaml` file and restarted Home Assistant, you'll be unable to continue until you have.
-5. Open the Google Assistant app and go into `Settings > Home Control`.
-6. Click the `+` sign, and near the bottom, you should have `[test] your app name`. Selecting that should lead you to a browser to login your Home Assistant instance, then redirect back to a screen where you can set rooms for your devices or nicknames for your devices.
-<p class='note'>
-If you've added Home Assistant to the home screen, you have to first remove it from home screen, otherwise, this HTML5 app will show up instead of a browser. Using it would prevent Home Assistant to redirect back to the `Google Assistant` app.
-</p>
-7. If you want to allow other household users to control the devices:
-    1. Go to the settings for the project you created in the [Actions on Google console](https://console.actions.google.com/).
-    2. Click `Test -> Simulator`, then click `Share` icon in the right top corner. Follow the on-screen instruction:
-        1. Add team members: Got to `Settings -> Permission`, click `Add`, type the new user's e-mail address and choose `Project -> Viewer` role.
-        2. Copy and share the link with the new user.
-        3. New user clicks the link with their own Google account, it will enable our draft test app under their account.
-    3. Have the new user go to their `Google Assistant` app to add `[test] your app name` to their account.
+3. Regresamos a la página de overview. Clic en `Simulator` bajo `TEST`. Creará una nueva versión borrador Test App. No necesitamos probarla , pero si necesitamos generar esta versión de borrador de Test App.
+4. Si tu no has agregado el compoenente al archivo de `configuration.yaml` y reiniciado Home Assistant, no se debe continuar hasta tenerlo.
+5. Abrimos la plicación Google Assistant y vamos a `Settings > Home Control`.
+6. Clic en el signo `+`, y en la parte de hasta arriba, debes tener `[test] tu aplicación de prueba`. Al Seleccionar esto debería irse a un navegador web en la pagina de inicio de tu instancia de Home Assistant, entonces te redirige a una pantalla donde tu puedes establece habitaciones para tus dispositivos y apodos.
 8. If you want to use the `google_assistant.request_sync` service, to update devices without unlinking and relinking, in Home Assistant, then enable Homegraph API for your project:
     1. Go to the [Google API Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview).
     2. Select your project and click Enable Homegraph API.
     3. Go to Credentials, which you can find on the left navigation bar under the key icon, and select API Key from Create Credentials.
     4. Note down the generated API Key and use this in the configuration.
 
-## {% linkable_title Configuration %}
+#### Configuración
 
-Now add the following lines to your `configuration.yaml` file:
+Agregar las siguientes líneas a tu archivo `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
 google_assistant:
   project_id: YOUR_PROJECT_ID
   api_key: YOUR_API_KEY
-
+```
