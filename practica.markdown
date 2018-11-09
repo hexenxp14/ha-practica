@@ -12,9 +12,9 @@ También se configurará el modulo de Google-Assistant para controlarlo por voz.
 - Protoboard
 - Led
 - Resistencia
-- Google Home Mini
+- Google Home Mini ó bien Celular con aplicación Google Assistant
 
-También es necesario contar con una cuenta de Google Cloud activa.
+También es necesario contar con una cuenta de Google Cloud activa y Remot3.it.
 
 ## Desarrollo:
 
