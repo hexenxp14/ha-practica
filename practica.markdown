@@ -88,9 +88,19 @@ Iniciamos Home Assistant por primera vez. Esto finalizará la instalación por t
 ```bash
 (homeassistant) $ hass
 ```
+
 Tu puedes ahora alcanzar tu instalación en tu Raspberry Pi por la interfaz web en [http://ipaddress:8123](http://ipaddress:8123).
 
 Cuando se ejecuta el comando `hass` por primera vez, este descargará , instalará y hará cache de las librecias/dependencias necesarias. Este procedimiento tomará entre 5 a 10 minutos. Durante ese tiempo, tu puedes obtener un error de "site cannot be reached" cuando accedes a la interfaz web.  Esto solamente ocurrirá la primera vez, y en los subsecuentes reinicios será mucho más rapido.
+
+### Activando el  virtual environment
+
+Para cuando tengamos que activar o bien editar los archivos de configuración usamos el siguiente comando:
+
+```bash
+$ sudo -u homeassistant -H -s
+$ source /srv/homeassistant/bin/activate
+```
 
 ### Instalación de Remot3.it
 
